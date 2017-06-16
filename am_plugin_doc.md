@@ -81,11 +81,11 @@ traffic on interface `IFACE-OUT` towards an appliance at address `APP-ADDR` and
 restores the active segment in the IPv6 header of the packets coming back on
 interface `IFACE-IN`.
 
-	sr localsid address SID behavior end.ad nh APP-ADDR oif IFACE-OUT iif IFACE-IN
+	sr localsid address SID behavior end.am nh APP-ADDR oif IFACE-OUT iif IFACE-IN
 
 For example, the following command configures the SID `1::A1` with an End.AM
 function for sending traffic on interface `GigabitEthernet0/8/0` to the appliance at
 address `A1::`, and receiving it back on interface `GigabitEthernet0/9/0`.
 
-	sr localsid address 1::A1 behavior end.ad nh A1:: oif GigabitEthernet0/8/0 iif GigabitEthernet0/9/0
+	sr localsid address 1::A1 behavior end.am nh A1:: oif GigabitEthernet0/8/0 iif GigabitEthernet0/9/0
 
