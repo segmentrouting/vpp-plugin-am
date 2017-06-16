@@ -30,7 +30,7 @@
 unsigned char function_name[] = "SRv6-AM-plugin";
 unsigned char keyword_str[] = "End.AM";
 unsigned char def_str[] = "Endpoint to SR-unaware appliance via masquerading";
-unsigned char params_str[] = "<next-hop> <iface-out> <iface-in>";
+unsigned char params_str[] = "nh <next-hop> oif <iface-out> iif <iface-in>";
 
 
 /*****************************************/
@@ -134,7 +134,7 @@ unformat_srv6_am_localsid (unformat_input_t * input, va_list * args)
   u32 sw_if_index_out;
   u32 sw_if_index_in;
 
-  if (unformat (input, "end.am %U %U %U",
+  if (unformat (input, "end.am nh %U oif %U iif %U",
         unformat_ip6_address, &nh_addr.ip6,
         unformat_vnet_sw_interface, vnm, &sw_if_index_out,
         unformat_vnet_sw_interface, vnm, &sw_if_index_in))
