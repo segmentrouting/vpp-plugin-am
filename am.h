@@ -41,7 +41,6 @@ typedef struct {
 typedef struct {
   ip46_address_t	nh_addr;        /**< Proxied device address */
   u32				sw_if_index_out;	    /**< Outgoing iface to proxied device */
-  u32				nh_adj;				        /**< Adjacency index for outgoing interface */
   u32				sw_if_index_in;		    /**< Incoming iface from proxied device */
 } srv6_am_localsid_t ;
 

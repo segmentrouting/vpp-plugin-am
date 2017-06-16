@@ -50,7 +50,7 @@ srv6_am_localsid_creation_fn (ip6_sr_localsid_t *localsid)
   if(nh_adj_index == ADJ_INDEX_INVALID)
     return -5;
 
-  ls_mem->nh_adj = nh_adj_index;
+  localsid->nh_adj = nh_adj_index;
 
 
   /* Step 2: Prepare inbound policy for packets returning from the VNF */
@@ -85,7 +85,7 @@ srv6_am_localsid_removal_fn (ip6_sr_localsid_t *localsid)
     return -1;
 
   /* Unlock (OIF, NHOP) adjacency (from sr_localsid.c:103) */
-  adj_unlock (ls_mem->nh_adj);
+  adj_unlock (localsid->nh_adj);
 
   /* Clean up local SID memory */
   clib_mem_free(localsid->plugin_mem);

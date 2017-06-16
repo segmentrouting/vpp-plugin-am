@@ -122,7 +122,6 @@ end_am_processing ( vlib_node_runtime_t * node,
     u32 * next0)
 {
   ip6_address_t *new_dst0;
-  srv6_am_localsid_t *ls0_mem;
 
   if(PREDICT_FALSE(ip0->protocol != IP_PROTOCOL_IPV6_ROUTE ||
         sr0->type != ROUTING_HEADER_TYPE_SR))
@@ -147,12 +146,8 @@ end_am_processing ( vlib_node_runtime_t * node,
   ip0->dst_address.as_u64[0] = new_dst0->as_u64[0];
   ip0->dst_address.as_u64[1] = new_dst0->as_u64[1];
 
-  /* Retrieve SID memory */
-  /* TODO: Re-use fields from main local SID structure? */
-  ls0_mem = ls0->plugin_mem;
-
   /* Set Xconnect adjacency to VNF */
-  vnet_buffer(b0)->ip.adj_index[VLIB_TX] = ls0_mem->nh_adj;
+  vnet_buffer(b0)->ip.adj_index[VLIB_TX] = ls0->nh_adj;
 }
 
 /**
