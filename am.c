@@ -23,10 +23,6 @@
 #include <vnet/plugin/plugin.h>
 #include <srv6-am/am.h>
 
-#include <vlibapi/api.h>
-#include <vlibmemory/api.h>
-#include <vlibsocket/api.h>
-
 unsigned char function_name[] = "SRv6-AM-plugin";
 unsigned char keyword_str[] = "End.AM";
 unsigned char def_str[] = "Endpoint to SR-unaware appliance via masquerading";
