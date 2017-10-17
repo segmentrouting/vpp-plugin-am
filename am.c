@@ -232,4 +232,5 @@ VLIB_INIT_FUNCTION (srv6_am_init);
 
 VLIB_PLUGIN_REGISTER () = {
   .version = "1.0",
+  .description = "Masquerading SRv6 proxy",
 };
